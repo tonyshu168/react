@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> First React</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale =1,user-scalable=no"/>
+
+  <script src="js/react-15.4.2.js"></script>
+  <script src="js/react-dom-15.4.2.js"></script>
+  <script src="js/browser.js"></script>
+</head>
+<body>
+
+  <div id="container"></div>
+
+  <script type="text/babel">
+    class Comp extends React.Component{
+      constructor(...ags){
+        super(...ags)
+        this.state = {value: ""}
+      }
+
+      fn(ev){
+        this.setState({value: ev.target.value})
+      }
+
+      render(){
+        return(
+          <div>
+            <input type="text" onChange = {this.fn.bind(this)} />
+            <span>{this.state.value}</span>
+          </div>
+        )
+      }
+    }
+
+
+    ReactDOM.render(<Comp/>,document.getElementById("container"))
+  </script>
+
+</body>
+</html>

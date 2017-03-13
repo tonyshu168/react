@@ -1,0 +1,60 @@
+<!-- document declare -->
+<!doctype html>
+
+<html>  
+<head>  
+    <title> Document </title>
+  <!-- 网页编码格式设置 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no"/>
+
+     <script src="js/react-15.4.2.js"></script>
+    <script src="js/react-dom-15.4.2.js"></script>
+    <script src="js/browser.js"></script>
+</head>
+
+<body>
+<div id="container"></div>
+
+<script type="text/babel">
+  class Clock extends React.Component{
+    constructor(...args){
+      super(...args);
+
+      this.state = {h: 0, m: 0, s: 0};
+
+      var self = this
+      var timer = setInterval(self.tick.bind(self),1000)
+    }
+
+    componentDidMount(){
+      console.log("componentDidMount");
+      this.tick();
+    }
+
+    tick(){
+      let now = new Date();
+
+      this.setState({
+        h: now.getHours(),
+        m: now.getMinutes(),
+        s: now.getSeconds(),
+      })
+    }
+
+    render(){
+      return(
+        <div>
+          <span>{this.state.h}:{this.state.m}:{this.state.s < 10 ? '0' + this.state.s : this.state.s}</span>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<Clock/>, document.getElementById("container"));
+</script>
+ 
+</body>
+
+</html>

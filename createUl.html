@@ -1,0 +1,56 @@
+<!-- document declare -->
+<!doctype html>
+
+<html>  
+<head>  
+    <title> Document </title>
+  <!-- 网页编码格式设置 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <script src="js/react-15.4.2.js"></script>
+  	<script src="js/react-dom-15.4.2.js"></script>
+  	<script src="js/browser.js"></script>
+</head>
+
+<body>
+<div id="container"></div>
+  
+<script type="text/babel">
+	class Item extends React.Component{
+		constructor(...args){
+			super(...args)
+		}
+
+		render(){
+			return <li>{this.props.value}</li>
+		}
+	}
+
+	class List extends React.Component{
+		constructor(...args){
+			super(...args)
+			this.state = {arr: [12,8,5,9]}
+		}
+
+		render(){
+			var result = []
+			
+			this.state.arr.forEach(function(v, i){
+				result.push(<Item key = {i} value = {v}/>)
+			})
+
+			return(
+			<ul>
+				{result}
+			</ul>
+			)
+		}
+	}
+
+	ReactDOM.render(<List/>, document.getElementById("container"))
+
+</script>
+</body>
+
+</html>

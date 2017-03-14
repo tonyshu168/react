@@ -1,0 +1,54 @@
+<!-- document declare -->
+<!doctype html>
+
+<html>  
+<head>  
+    <title> Document </title>
+  <!-- 网页编码格式设置 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name = "viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <script src="js/react-15.4.2.js"></script>
+    <script src="js/react-dom-15.4.2.js"></script>
+    <script src="js/browser.js"></script>
+    <style>
+    	.fontColor{
+    		color: #f00;
+    	}
+    </style>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<script type="text/babel">
+	class Component01 extends React.Component{
+		constructor(...args){
+			super(...args)
+			this.state = {value: '1111'}
+		}
+
+		componentWillMount(){
+			console.log("要生产组件了")
+		}
+
+		componentDidMount(){
+			console.log("组件生产完成")
+		}
+
+		render(){
+			return(
+			<div>
+				<span className="fontColor">{this.state.value}</span>
+			</div>
+			)
+		}
+	}
+
+	ReactDOM.render(<Component01/>, document.getElementById("container"))
+</script>
+  
+</body>
+
+</html>

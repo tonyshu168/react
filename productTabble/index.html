@@ -1,0 +1,45 @@
+<!-- document declare -->
+<!doctype html>
+
+<html>  
+<head>  
+    <title> Document </title>
+  <!-- 网页编码格式设置 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <script src="../js/react-15.4.2.js"></script>
+  	<script src="../js/react-dom-15.4.2.js"></script>
+  	<script src="../js/browser.js"></script>
+</head>
+
+<body>
+	<div id="page"></div>
+
+	<script type="text/babel">
+		//http://html-js.com/article/2328
+		class ProductCategoryRow extends React.Component{    //ProductCategoryRow
+			render(){
+			return(<tr><th colspan = "2"></th></tr>)
+			}
+		}
+
+		class ProductRow extends React.Component{
+			render(){
+				let name = this.props.product.stocked ? thos.props.product.name : <span style={{color: "red"}}>{this.props.prouct.name}</span> 
+
+				return(
+				<tr>
+					<td>{name}</td>
+					<td>{this.props.product.price}</td>
+				</tr>
+				)
+			}
+		}
+
+
+	</script>
+  
+</body>
+
+</html>

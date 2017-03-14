@@ -1,0 +1,47 @@
+<!-- document declare -->
+<!doctype html>
+
+<html>  
+<head>  
+    <title> Document </title>
+  <!-- 网页编码格式设置 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scale=no"/>
+    <script src="js/react-15.4.2.js"></script>
+  	<script src="js/react-dom-15.4.2.js"></script>
+  	<script src="js/browser.js"></script>
+</head>
+
+<body>
+<div id="container"></div>
+  
+<script type="text/babel">
+	class Comp extends React.Component{
+		componentWillUnmount(){
+			console.log("即将销毁组件")
+		}
+
+		render(){
+			return(<span>1111</span>)
+		}
+	}
+
+	//ReactDOM.render(<Comp/>, document.getElementById("container"))
+	
+	var div = document.getElementById("container"),
+			i = 1
+	document.onclick = function(){
+		i ++
+		if(i % 2){
+			ReactDOM.render(<Comp/>, div)
+		}
+		else{
+			ReactDOM.render(<div>qqqq</div>, div)
+		}
+	}
+
+</script>
+</body>
+
+</html>
